@@ -2,17 +2,24 @@
 import json
 class SPDU_type_1:
     def __init__(self,data):
-        self.data = data
+        self.data = bin(data).replace("0b","") ## Remove the "0b" from binary string
         self.directive = data[13:15]
         self.parameter = dict()
         self.select()
-    def decode(self):{
 
-    }
+    def decode(self):
+        with open("SPDU.json","r") as file:
+            table = json.load(file)
+        # No key in .json file for the TIME_SAMPLE
+        for key in self.parameter:
+            try:
+                self.parameter[key] = table["SPDU1"][key][self.parameter[key]]
+            except:
+                pass
 
     def select(self):
         match self.directive:
-            case 0x00:
+            case "000":
                 self.parameter = {
                     "TX_FREQUENCY":  self.data[10:12],
                     "TX_ENCODING":self.data[8:9],
@@ -20,14 +27,14 @@ class SPDU_type_1:
                     "TX_DATA_RATE": self.data[3:6],
                     "TX_MODE":self.data[0:2]
                 }
-            case 0x01:
+            case "001":
                 self.parameter = {
                     "TOKEN": self.data[12],
                     "RMND": self.data[11],
                     "DUPLEX": self.data[6:8],
-                    "TIME_SAMPLE": self.data[0:5]
+                    "TIME_SAMPLE": int(self.data[0:5],2)
                 }
-            case 0x02:
+            case "010":
                 self.parameter = {
                     "RX_FREQUENCY":  self.data[10:12],
                     "RX_ENCODING":self.data[8:9],
@@ -35,18 +42,18 @@ class SPDU_type_1:
                     "RX_DATA_RATE": self.data[3:6],
                     "RX_MODE":self.data[0:2]
                 }
-            case 0x03:
+            case "011":
                 self.parameter = {
-                    "SEQ_CTRL_FSN": self.data[0:7]
+                    "SEQ_CTRL_FSN": int(self.data[0:7], 2)
                 }
-            case 0x04:
+            case "100":
                 self.parameter = {
                     "PCID1": self.data[12],
                     "PCID0": self.data[11],
                     "TIME_TAG_REQUEST": self.data[8:10],
                     "STATUS_REPORT_REQUEST": self.data[3:7]
                 }
-            case 0x06:
+            case "110":
                 self.parameter = {
                     "DIRECTION": self.data[0],
                     "FREQUENCY_TABLE": self.data[1],
@@ -58,7 +65,8 @@ class SPDU_type_1:
                     "DIFF_ENCODING": self.data[11],
                     "RS_CODE": self.data[12]
                 }
-            case 0x07:
+            case "111":
                 self.parameter = {
-                    "SCID": self.data[0:9]
+                    "SCID": int(self.data[0:9], 2)
                 }
+        self.decode()

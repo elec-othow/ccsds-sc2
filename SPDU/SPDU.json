@@ -11,7 +11,6 @@
         "6" : "Reserved",
         "7" : "Reserved"
       },
-
       "TX_DATA_RATE": {
         "0": 8000,
         "1": 8000,
@@ -27,6 +26,92 @@
         "13": 64000,
         "14": "RESERVED",
         "15": "RESERVED"
+      },
+      "TX_MODULATION": {
+        "0": "Coherent PSK",
+        "1": "Non-Coherent PSK"
+      },
+      "TX_ENCODING": {
+        "0": "LDPC(2048,1024) rate 1/2 code",
+        "1": "Convolutional Code(7,1/2) (G2 vector inverted) with attached CRC-32",
+        "2": "Bypass",
+        "3": "Concatenated (R-S(204,188), CC(7,1/2))"
+      },
+      "TX_FREQUENCY": {
+        "0": 401585625,
+        "1": 404400000,
+        "2": 397500000,
+        "3": 393900000,
+        "4": "390 to 405 MHz",
+        "5": "390 to 405 MHz",
+        "6": "390 to 405 MHz",
+        "7": "390 to 405 MHz"
+      },
+
+      "DUPLEX": {
+        "0": "No change",
+        "1": "Full Duplex",
+        "2": "Half Duplex",
+        "3": "Simplex Transmit",
+        "4": "Simplex Receive",
+        "5": "Reserved",
+        "6": "Reserved",
+        "7": "Reserved"
+      },
+      "RMND": {
+        "0": "No Change",
+        "1": "RMND"
+      },
+      "TOKEN": {
+        "0": "No Change",
+        "1": "Transmit"
+      },
+
+      "RX_MODE": {
+        "0" : "Mission Specific",
+        "1" : "Proximity 1",
+        "2" : "Mission Specific",
+        "3" : "Mission Specific",
+        "4" : "Mission Specific",
+        "5" : "Mission Specific",
+        "6" : "Reserved",
+        "7" : "Reserved"
+      },
+      "RX_DATA_RATE": {
+        "0": 8000,
+        "1": 8000,
+        "2": 32000,
+        "3": 32000,
+        "4": 128000,
+        "6": 256000,
+        "8": 2000,
+        "9": 4000,
+        "10": "RESERVED",
+        "11": "RESERVED",
+        "12": 16000,
+        "13": 64000,
+        "14": "RESERVED",
+        "15": "RESERVED"
+      },
+      "RX_MODULATION": {
+        "0": "Coherent PSK",
+        "1": "Non-Coherent PSK"
+      },
+      "RX_ENCODING": {
+        "0": "LDPC(2048,1024) rate 1/2 code",
+        "1": "Convolutional Code(7,1/2) (G2 vector inverted) with attached CRC-32",
+        "2": "Bypass",
+        "3": "Concatenated (R-S(204,188), CC(7,1/2))"
+      },
+      "RX_FREQUENCY": {
+        "0": 437100000,
+        "1": 435600000,
+        "2": 439200000,
+        "3": 444600000,
+        "4": "435 to 450 MHz",
+        "5": "435 to 450 MHz",
+        "6": "435 to 450 MHz",
+        "7": "435 to 450 MHz"
       }
     }
   ]
