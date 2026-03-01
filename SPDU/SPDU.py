@@ -59,40 +59,7 @@ class SPDU:
         match type:
             case 0:
                 spdu = SPDU_type_1(data)
-                self.t_mode = spdu.t_mode
-                self.t_data_rate = spdu.t_data_rate
-                self.t_modulation = spdu.t_modulation
-                self.t_encoding = spdu.t_encoding
-                self.t_frequency = spdu.t_frequency
-
-                self.time_sample = spdu.time_sample
-                self.duplex = spdu.duplex
-                self.rmnd = spdu.rmnd
-                self.token = spdu.token
-
-                self.r_mode = spdu.r_mode
-                self.r_data_rate = spdu.r_data_rate
-                self.r_modulation = spdu.r_modulation
-                self.r_encoding = spdu.r_encoding
-                self.r_frequency = spdu.r_frequency
-
-                self.SEQ_CTRL_FSN = spdu.SEQ_CTRL_FSN
-
-                self.status_report_request = spdu.status_report_request
-                self.time_tag_request = spdu.time_tag_request
-                self.PCID0 = spdu.PCID0
-                self.PCID1 = spdu.PCID1
-
-                self.direction = spdu.direction
-                self.frequency_table = spdu.frequency_table
-                self.rate_table = spdu.rate_table
-                self.carrier_mod = spdu.carrier_mod
-                self.data_mod = spdu.data_mod
-                self.mode_select = spdu.mode_select
-                self.scrambler = spdu.scrambler
-                self.Diff_Encoding = spdu.Diff_Encoding
-                self.RS_code = spdu.RS_code
-                self.SCID = spdu.SCID
+                self.update_parameter(spdu.parameter)
             case 3:
 
 
