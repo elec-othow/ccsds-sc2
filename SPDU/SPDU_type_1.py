@@ -72,8 +72,6 @@ class SPDU_TYPE_1:
                 self.rate_table = self.data[2]
                 self.parameter = {
                     "DIRECTION": self.data[0],
-                    "FREQUENCY_TABLE": self.data[1],
-                    "RATE_TABLE": self.data[2],
                     "CARRIER_MODULATION": self.data[3:4],
                     "DATA_MODULATION": self.data[5:6],
                     "MODE_SELECT": self.data[7:8],
